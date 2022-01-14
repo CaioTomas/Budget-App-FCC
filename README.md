@@ -1,4 +1,6 @@
-This is the repo of my solution to the Budget App project from the Scientific Computing with Python course from freeCodeCamp.
+## English description
+
+This is the repo of my solution to the *Budget App* project from the **Scientific Computing with Python** course from freeCodeCamp. The portuguese README is down below.
 
 ### Assignment
 
@@ -70,3 +72,80 @@ We imported the tests from `test_module.py` to `main.py` for your convenience. T
 ### Submitting
 
 Copy your project's URL and submit it to freeCodeCamp.
+
+-------------------------------------------------------
+
+## Descrição em português
+
+Esse é o repositório com a minha solução para o projeto *Budget App* do curso **Scientific Computing with Python** do freeCodeCamp. A tradução que segue abaixo é livre e feita por mim.
+
+### Tarefa
+
+Complete a classe `Category` em `budget.py`. Ela deve ser capaz de instanciar objetos baseada em diferentes categorias de orçamento como *food*, *clothing* e *entertainment*. Quando os objetos são criados, eles são passados no nome da categoria. A classe deve ter uma variável de instância chamada `ledger` que é uma lista. A classe também dever conter os seguintes métodos:
+
+* Um método `deposit` que aceita uma quantidade e uma descrição. Se nenhuma descrição for dada, ele deve retornar uma string vazia por padrão. O método deve dar append na lista ledger na forma `{"amount": amount, "description": description}`.
+* Um método `withdraw` que é similar ao método `deposit`, mas a quantidade passada deve ser guardada no ledger como um número negativo. Se não houver fundos o suficiente, nada deve ser acrescentado ao ledger. Esse método deve retornar `True` se a retirada foi feita e `False` caso contrário.
+* Um método `get_balance` que retorn o balanço atual da categoria do orçamento baseado nos depósitos e retiradas ocorridas.
+* Um método `transfer` que recebe uma quantidade e outra categoria de orçamento como argumentos. O método deve adicionar uma retirada com a quantidade e a descrição "Transfer to [Destination Budget Category]". O método deve então adicionar um depósito em outra categoria do orçamento com a quantidade e a descrição "Transfer from [Source Budget Category]". Se não houver fundos suficientes, nada deve ser acrescentado a nenhum dos ledgers. O método deve retornar `True` se a transferência ocorreu e `False` do contrário.
+* Um método `check_funds` que recebe uma quantidade como argumento. Ele retorna `False` se a quantidade é maior que o balanço da categoria do orçamento e `True` caso contrário. Esse método deve ser usado tanto pelo método `withdraw` quanto pelo método `transfer`.
+
+Quando o objeto budget é printado deve ser mostrado:
+* Uma linha de título com 30 caracteres, onde o nome da categoria está centralizado em uma linha de `*`.
+* Uma lista dos itens no ledger. Cada linha deve mostrar a descrição e a quantidade. Os primeiros 23 caracteres da descrição devem ser mostrado, e em seguida a quantidade. A quantidade deve estar alinhada à direita, com duas casas decimais e no máximo 7 caracteres.
+* Uma linha exibindo o total da categoria.
+
+Exemplo de output:
+```
+*************Food*************
+initial deposit        1000.00
+groceries               -10.15
+restaurant and more foo -15.89
+Transfer to Clothing    -50.00
+Total: 923.96
+```
+
+Além da classe `Category`, crie umaa função (fora da classe) chamada `create_spend_chart` que recebe uma lista de categorias como argumento. Ela deve retornar uma string que é um gráfico de barras.
+
+O gráfico deve mostrar a porcentagem gasta em cada categoria passada na função. A porcentagem gasta deve ser calculada apenas com retiradas e não com depósitos. No lado esquerdo do gráfico deve haver labels 0 - 100. As "barras" no gráfico devem ser feitas do caracter "o". A altura de cada barra deve ser arredondada para a dezena mais próxima. A linha horizontal abaixo das barras deve ir dois espaços abaixo da barra final. Cada nome de categoria deve ser escrito verticalmente abaixo da barra. Deve haver um título no topo que diz "Percentage spent by category".
+
+Essa função será testada com até quatro categorias.
+
+Observe atentamente o exemplo de output abaixo e garanta que o espaçamento do output está exatamente igual ao exemplo.
+
+```
+Percentage spent by category
+100|          
+ 90|          
+ 80|          
+ 70|          
+ 60| o        
+ 50| o        
+ 40| o        
+ 30| o        
+ 20| o  o     
+ 10| o  o  o  
+  0| o  o  o  
+    ----------
+     F  C  A  
+     o  l  u  
+     o  o  t  
+     d  t  o  
+        h     
+        i     
+        n     
+        g     
+```
+
+Os testes unitários para esse projeto estão em `test_module.py`.
+
+### Desenvolvimento
+
+Escreva seu código em `budget.py`. Para o desenvolvimento, você pode usar `main.py` para testar a sua classe `Category`. Clique em "run" e `main.py` rodará.
+
+### Testando 
+
+Importamos os testes de `test_module.py` para `main.py` por conveniência. Os testes rodarão automaticamente sempre que você clicar em "run".
+
+### Submissão
+
+Copie a URL do projeto e submeta-a para o freeCodeCamp.
